@@ -1,0 +1,121 @@
+local Translations = {
+    error = {
+        canceled = 'අවලංගු කරන ලදී',
+        bled_out = 'ඔබ රුධිරය හරහා මිය ගොස් ඇත...',
+        impossible = 'මෙම ක්‍රියාව කිරීම අසම්භාව්යයි...',
+        no_player = 'සමීපයේ කෙනෙකු නොමැත',
+        no_firstaid = 'ඔබට පළමු ආධාර කට්ටලයක් අවශ්‍යයි',
+        no_bandage = 'ඔබට බැන්ඩේජයක් අවශ්‍යයි',
+        beds_taken = 'මහල් කාමර භාවිතා කෙරේ...',
+        possessions_taken = 'ඔබේ සියලුම දේපල ලබාගෙන ඇත...',
+        not_enough_money = 'ඔබට ප්‍රමාණවත් මුදල් නැත...',
+        cant_help = 'ඔබට මෙම පුද්ගලයාට උදව් කිරීමට නොහැක...',
+        not_ems = 'ඔබ EMS නෑ හෝ ලොග්වී නොමැත',
+        not_online = 'කලකරන නොමැත'
+    },
+    success = {
+        revived = 'ඔබ පුද්ගලයෙකු ප්‍රතිචක්‍රීකරණය කළා',
+        healthy_player = 'පුද්ගලයා සෞඛ්‍ය සම්පන්නයි',
+        helped_player = 'ඔබ මෙම පුද්ගලයාට උදව් කළා',
+        wounds_healed = 'ඔබේ තුවාල සුවපත් කර ඇත!',
+        being_helped = 'ඔබට උදව් වේ...'
+    },
+    info = {
+        civ_died = 'පොලිස් නොවන පුද්ගලයා මිය ගියා',
+        civ_down = 'පොලිස් නොවන පුද්ගලයා බැස ඇත',
+        civ_call = 'පොලිස් නොවන පුද්ගලයාගේ ඇමතුම',
+        self_death = 'අපමන හෝ NPC',
+        wep_unknown = 'නොදන්නා',
+        respawn_txt = 'නැවත උපන්ය: ~r~%{deathtime}~s~ තත්පර',
+        respawn_revive = 'දැඩිව [~r~E~s~] %{holdtime} තත්පර සඳහා %{cost}~s~ වලට නැවත උපදින්න',
+        bleed_out = 'ඔබ %{time}~s~ තත්පර තුළ රුධිරය හරහා මිය යයි',
+        bleed_out_help = 'ඔබ %{time}~s~ තත්පර තුළ රුධිරය හරහා මිය යයි, ඔබට උදව් කළ හැක',
+        request_help = '[~r~G~s~] උදව් ඉල්ලීමට ඔබන්න',
+        help_requested = 'EMS සේවකයින් දැනුවත් කළා',
+        amb_plate = 'ආම්බු',
+        heli_plate = 'ජීවිත',
+        status = 'තත්ත්වය පරීක්ෂා කරන්න',
+        is_status = '%{status} ලෙස පවති',
+        healthy = 'ඔබ සම්පූර්ණයෙන්ම සෞඛ්‍ය සම්පන්නයි!',
+        safe = 'රෝහල ආරක්ෂා',
+        pb_hospital = 'පිල්බොක්ස් රෝහල',
+        paleto_hospital = 'පාලෙටෝ රෝහල',
+        pain_message = 'ඔබේ %{limb} %{severity} වේ',
+        many_places = 'ඔබට බොහෝ තැන්වල වේදනාවක් ඇත...',
+        bleed_alert = 'ඔබ %{bleedstate}',
+        ems_alert = 'EMS නිවේදනය - %{text}',
+        mr = 'මහතා',
+        mrs = 'මහත්මිය',
+        dr_needed = '%{hospital} හි වෛද්‍යවරයෙකු අවශ්‍ය වේ',
+        ems_report = 'EMS වාර්තාව',
+        message_sent = 'පණිවිඩය එවීම සඳහා',
+        check_health = 'කෙනෙකුගේ සෞඛ්‍යය පරීක්ෂා කරන්න',
+        heal_player = 'කෙනෙකු සුවපත් කරන්න',
+        revive_player = 'කෙනෙකු ප්‍රතිචක්‍රීකරණය කරන්න',
+        revive_player_a = 'කෙනෙකු හෝ ඔබම ප්‍රතිචක්‍රීකරණය කරන්න (පරිපාලක සුවිශේෂි)',
+        player_id = 'කෙනෙකුගේ ID (හිස් විය හැක)',
+        pain_level = 'ඔබේ හෝ අයෙකුගේ වේදනාව මට්ටම සකසන්න (පරිපාලක සුවිශේෂි)',
+        kill = 'කෙනෙකු හෝ ඔබම මරා දමන්න (පරිපාලක සුවිශේෂි)',
+        heal_player_a = 'කෙනෙකු හෝ ඔබම සුවපත් කරන්න (පරිපාලක සුවිශේෂි)',
+    },
+    mail = {
+        subject = 'රෝහල් වියදම්',
+        message = 'ගරු %{gender} %{lastname}, <br /><br />ඔබට අවසාන රෝහල් සංචාරයේ වියදම් පිළිබඳ ඊමේල් එකක් ලැබී ඇත.<br />අවසාන වියදම්: <strong>$%{costs}</strong><br /><br />ඉක්මන් සුවයක් ලැබේවා!'
+    },
+    states = {
+        irritated = 'කුළු මැටි',
+        quite_painful = 'තද වේදනාවක්',
+        painful = 'වේදනාකාරී',
+        really_painful = 'ඇත්තේම වේදනාවක්',
+        little_bleed = 'අඩු මට්ටමේ රුධිරය...',
+        bleed = 'රුධිරය...',
+        lot_bleed = 'අධික රුධිරය...',
+        big_bleed = 'අතිශය රුධිරය...'
+    },
+    menu = {
+        amb_vehicles = 'ආම්බුලන්ස් වාහන',
+        status = 'සෞඛ්‍ය තත්ත්වය',
+        close = '⬅ මෙනුව වසා දමන්න',
+    },
+    text = {
+        pstash_button = '[E] - පෞද්ගලික ආයුධ ආධාර',
+        pstash = 'පෞද්ගලික ආයුධ ආධාර',
+        onduty_button = '[E] - සේවයේ යන්න',
+        offduty_button = '[E] - සේවයෙන් ඉවත් වන්න',
+        duty = 'සේවා මාරුවීම',
+        armory_button = '[E] - ආයුධ ගබඩා',
+        armory = 'ආයුධ ගබඩා',
+        veh_button = '[E] - වාහනය ගන්න / ගබඩා කරන්න',
+        heli_button = '[E] - හෙලිකොප්ටර ගන්න / ගබඩා කරන්න',
+        elevator_roof = '[E] - උඩුමහළට යන්න',
+        elevator_main = '[E] - බිමට යන්න',
+        bed_out = '[E] - ඇඳෙන් පිටවීම සඳහා',
+        call_doc = '[E] - වෛද්‍යවරයෙකුට කතා කරන්න',
+        call = 'කතා කරන්න',
+        check_in = '[E] පරීක්ෂා කරන්න',
+        check = 'පරීක්ෂා කරන්න',
+        lie_bed = '[E] - ඇඳේ සිටින්න'
+    },
+    body = {
+        head = ' හිස',
+        neck = 'කඳ',
+        -- Continue translating the remaining parts...
+    },
+    progress = {
+        ifaks = 'ඉෆැක්ස් ගන්න...',
+        bandage = 'බැන්ඩේජය භාවිතා කරමින්...',
+        painkillers = 'වේදන නිවාරණ උත්සාහ...',
+        revive = 'පුද්ගලයෙකු ප්‍රතිචක්‍රීකරණය කිරීම...',
+        healing = 'තුවාල සුවපත් කරමින්...',
+        checking_in = 'පරීක්ෂා...',
+    },
+    logs = {
+        death_log_title = '%{playername} (%{playerid}) මිය ගියේය',
+        death_log_message = '%{killername} %{playername} මරා දමන ලදී **%{weaponlabel}** (%{weaponname})',
+    }
+}
+
+Lang = Lang or Locale:new({
+    phrases = Translations,
+    warnOnMissing = true
+})
